@@ -34,7 +34,8 @@ object Scalate {
 
     def render(args: Map[String, Any]) = {
       import play.api.Play._
-      val argsWithPlayObjects = args ++ Map("routes" -> routes)
+
+      val argsWithPlayObjects = args ++ Map("routes" -> routes, "assets" -> controllers.Assets, "app" -> play.api.Play.current)
       ScalateContent{
         scalateEngine.layout(name, argsWithPlayObjects)
       }
