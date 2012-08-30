@@ -4,7 +4,10 @@
 html(lang="en")
   head
     title #{title}
-    -# <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+    -# This works, but does not user @routes
+    -# todo : find a way to make play 2 objects accessible in scalate templates.
+    link(rel="stylesheet" type="text/css" href="/assets/css/bootstrap/bootstrap.min.css")
+
     :javascript
   body
     h1 Template
