@@ -1,15 +1,27 @@
--@ var title: String = "Default title from template"
+- import play.api.Play.current
+- import views.Tags._
+
+-@ var title: String = "This is Play 2 Scala Scalate sample project"
 -@ var body: String
+-@ var modeCssToken: Option[String] = if(play.api.Play.isDev) None else Option("min")
+
 !!! 5
 html(lang="en")
   head
     title #{title}
-    -# This works, but does not user @routes
-    -# I did not found any way to port the @routes.... in scalate.
-    link(rel="stylesheet" type="text/css" href="/assets/css/bootstrap/bootstrap.min.css")
+    -# todo : fix the following duplicated call for bootstrap lib
+    = linkStyleSheets(library="bootstrap",suffix= modeCssToken)
+    = linkStyleSheets(library="bootstrap",files= Seq("responsive"), suffix= modeCssToken)
+  body
+    .container-fluid
+      .row-fluid
+        .span2
+        .span8
+          = unescape(body)
+        .span1
+
+    -# Using jquery minified by default
+    = linkJavascripts(library="underscore", suffix= Option("min"))
+    = linkJavascripts(library="jquery", version= Option("1.8"), suffix= Option("min"))
 
     :javascript
-  body
-    h1 Template
-    #container
-      = unescape(body)
