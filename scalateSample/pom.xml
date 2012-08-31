@@ -20,6 +20,7 @@
                     <source>1.6</source>
                     <target>1.6</target>
                     <encoding>${project.build.sourceEncoding}</encoding>
+                    <debug>false</debug>
                 </configuration>
             </plugin>
             <plugin>
@@ -44,6 +45,7 @@
                         <configuration>
                             <sources>
                                 <source>app</source>
+                                <source>test</source>
                             </sources>
                         </configuration>
                     </execution>
@@ -74,6 +76,12 @@
             <groupId>org.fusesource.scalate</groupId>
             <artifactId>scalate-core</artifactId>
             <version>1.5.3</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.scalaz</groupId>
+            <artifactId>scalaz-core_2.9.1</artifactId>
+            <version>6.0.4</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
