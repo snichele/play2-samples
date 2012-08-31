@@ -8,11 +8,12 @@ object ApplicationBuild extends Build {
     val appVersion      = "1.0-SNAPSHOT"
 
     val appDependencies = Seq(
-      "org.fusesource.scalate" % "scalate-core" % "1.5.3"
+      "org.fusesource.scalate" % "scalate-core" % "1.5.3",
+      "org.scalaz" %% "scalaz-core" % "6.0.4"
     )
 
     val main = PlayProject(appName, appVersion, appDependencies, mainLang = SCALA).settings(
-      // Add your own project settings here      
+      // Add your own project settings here
     )
 
 }
